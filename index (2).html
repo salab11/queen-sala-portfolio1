@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Queen Sala Portfolio</title>
+<style>
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:url('a_bright_highly_detailed_anime_style_portfolio_we.png') center/cover fixed no-repeat;
+ min-height:100vh;
+ color:white;
+}
+.overlay{
+ background:rgba(20,0,20,.35);
+ min-height:100vh;
+ backdrop-filter:blur(2px);
+}
+.nav{
+ display:flex;justify-content:center;gap:20px;padding:20px;
+}
+.nav button,.card button{
+ background:#ff5cb8;color:white;border:none;padding:12px 20px;
+ border-radius:30px;cursor:pointer;
+}
+.hero{text-align:center;padding:40px 20px;}
+.hero h1{font-size:5rem;text-shadow:0 0 20px hotpink;}
+.cards{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:20px;max-width:1100px;margin:auto;padding:20px;
+}
+.card{
+ background:rgba(255,255,255,.15);
+ border:2px solid rgba(255,255,255,.4);
+ border-radius:25px;padding:20px;text-align:center;
+ backdrop-filter:blur(8px);
+}
+#content{
+ max-width:1000px;margin:20px auto;padding:25px;
+ background:rgba(255,255,255,.15);
+ border-radius:20px;
+}
+</style>
+</head>
+<body>
+<div class="overlay">
+<div class="nav">
+<button onclick="showSection('about')">About Me</button>
+<button onclick="showSection('resume')">Resume</button>
+<button onclick="showSection('projects')">Projects</button>
+<button onclick="showSection('photos')">Photos</button>
+</div>
+
+<div class="hero">
+<h1>👑 Queen Sala</h1>
+<h2>Dream • Code • Create • Inspire</h2>
+</div>
+
+<div class="cards">
+<div class="card"><h2>👑 About Me</h2><button onclick="showSection('about')">View</button></div>
+<div class="card"><h2>📄 Resume</h2><button onclick="showSection('resume')">View</button></div>
+<div class="card"><h2>💻 Coding Projects</h2><button onclick="showSection('projects')">View</button></div>
+<div class="card"><h2>📸 Photos</h2><button onclick="showSection('photos')">View</button></div>
+</div>
+
+<div id="content">
+<h2>Welcome 💖</h2>
+<p>Click any section to explore the portfolio.</p>
+</div>
+</div>
+
+<script>
+const sections={
+about:`<h2>👑 About Me</h2><p>Add your biography, interests, education, and goals here.</p>`,
+resume:`<h2>📄 Resume</h2><p>Add your resume details or a PDF download link.</p>`,
+projects:`<h2>💻 Coding Projects</h2><ul><li>Portfolio Website</li><li>Web App</li><li>Python Project</li></ul>`,
+photos:`<h2>📸 Photos</h2><p>Add your photo gallery here.</p>`
+};
+function showSection(name){
+ document.getElementById('content').innerHTML=sections[name];
+ document.getElementById('content').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
